@@ -1,4 +1,6 @@
 // This class includes an implementation of 2 of the most famous search algorithms, Brute Force and Binary Search
+// Brute Force (Linear Search) Time Complexity O(n)
+// Binary Search Time Complexity O(log(n))
 
 public class Search {
 
