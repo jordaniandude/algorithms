@@ -95,6 +95,26 @@ A height-balanced binary tree is a binary tree in which the depth of the two sub
     }
   
   
+     /*
+     Validate BST
+    */
+  
+     public Boolean isBST(TreeNode root) {
+        return validate(root, null, null);
+    }
+  
+     public Boolean validate(TreeNode root, Integer min, Integer max) {
+       if (root == null) {
+         return true;
+       } 
+       
+       if((max != null && root.val >= max) || (min != null && root.val <= min)) {
+         return false;
+       } else {
+         return validate(root.left, min, root.val) && validate(root.right, root.val, max);
+       }
+    }
+  
   
   
 }
