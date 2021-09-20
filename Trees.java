@@ -68,6 +68,32 @@ A height-balanced binary tree is a binary tree in which the depth of the two sub
         
     }
   
+    /*
+     longest consecutive sequence 
+    */
+  
+     public TreeNode longestConsecutive(TreeNode root) {
+        int max = 0; // could be an integer array to be available during recursion, because integer array is stored in heap
+        findLongestConsecutiveSequence(root, 0, 0, max);
+        return max;
+    }
+  
+     public void findLongestConsecutiveSequence(TreeNode root, int count, int target, int max) {
+       if (root == null) {
+         return;
+       } 
+       
+       if (root.val == target) {
+         count++;
+       } else {
+         count = 1;
+       }
+       
+       max = count > max ? count : max;
+       findLongestConsecutiveSequence(root.left, count, root.val + 1, max);
+       findLongestConsecutiveSequence(root.right, count, root.val + 1, max);       
+    }
+  
   
   
   
